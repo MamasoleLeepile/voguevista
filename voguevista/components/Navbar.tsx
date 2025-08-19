@@ -103,12 +103,12 @@ export default function Navbar () {
                   </Button>
                 ) : (
                   <>
-                    <Link href="/login">
+                    <Link href="/auth/login">
                       <Button className="bg-indigo-600 hover:bg-gray-950 px-6 py-2 transform hover:-translate-y-1 transition duration-400">
                         Sign In
                       </Button>
                     </Link>
-                    <Link href="/register">
+                    <Link href="/auth/register">
                       <Button className="bg-indigo-600 hover:bg-gray-950 px-6 py-2 transform hover:-translate-y-1 transition duration-400">
                         Sign Up
                       </Button>

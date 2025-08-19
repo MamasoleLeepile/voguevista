@@ -1,11 +1,11 @@
 "use client";
 
-import Register from "@/components/Auth/Register";
+import Profile from "@/components/Auth/Register";
 
 export default function Page() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <Register />
+      <Profile />
     </div>
   );
 }

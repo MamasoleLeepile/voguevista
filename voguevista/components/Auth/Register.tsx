@@ -53,7 +53,8 @@ export default function RegisterForm() {
             <input
               {...register("fullName", { required: "Name is required" })}
               className="mt-1 w-full p-2 border rounded"
-              placeholder="Eg. John Doe"
+              placeholder="Eg. Mamasole Leepile"
+              type="text"
             />
             {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName.message}</p>}
           </div>
@@ -67,7 +68,7 @@ export default function RegisterForm() {
               })}
               type="email"
               className="mt-1 w-full p-2 border rounded"
-              placeholder="Eg. john@example.com"
+              placeholder="Eg. leepile@example.com"
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
           </div>
@@ -81,7 +82,7 @@ export default function RegisterForm() {
               })}
               type="email"
               className="mt-1 w-full p-2 border rounded"
-              placeholder="Eg. john@example.com"
+              placeholder="Eg. leepile@example.com"
             />
             {errors.confirmEmail && <p className="text-red-500 text-sm">{errors.confirmEmail.message}</p>}
           </div>
@@ -92,7 +93,7 @@ export default function RegisterForm() {
               {...register("phone", { required: "Phone number is required" })}
               type="tel"
               className="mt-1 w-full p-2 border rounded"
-              placeholder="Eg. +1234567890"
+              placeholder="Eg. +26612345678"
             />
             {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
           </div>
@@ -100,7 +101,7 @@ export default function RegisterForm() {
           <div className="relative">
             <label className="block text-sm font-medium">Password</label>
             <input
-              {...register("password", { required: "Password is required", minLength: { value: 6, message: "Password must be at least 6 characters" } })}
+              {...register("password", { required: "Password is required", minLength: { value: 8,message: "Password must be at least 8characters" } })}
               type={passwordInputType}
               className="mt-1 w-full p-2 border rounded"
               placeholder="**********"
@@ -131,7 +132,7 @@ export default function RegisterForm() {
 
           <p className="text-center text-sm">
             Already have an account?{" "}
-            <Link href="/login" className="underline">Sign in</Link>
+            <Link href="/auth/login" className="underline">Sign in</Link>
           </p>
         </form>
       </div>
