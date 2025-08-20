@@ -8,7 +8,7 @@ import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import Link from "next/link";
-import { useCart } from "./CartContext"; // Adjust path to your context
+import { useCart } from "./CartContext"; 
 import itemData from "@/components/ProductListing/ProductData";
 
 
@@ -31,14 +31,16 @@ export default function ProductCard({ products }: { products?: typeof itemData }
       <Masonry columns={{ xs: 2, sm: 3, md: 4 }} spacing={2}>
         {displayProducts.map((item) => (
           <div key={item.id} className="relative">
-            <Label>{item.title}</Label>
-            <Link href={`/product/${item.id}`}>
-              <img
-                src={item.img}
-                alt={item.title}
-                className="cursor-pointer w-full rounded-lg"
-              />
-            </Link>
+          {/*Render the item's title inside a Label component*/}
+        <Label>{item.title}</Label>  
+         {/* Wrap the product image in a Next.js Link to navigate to the product details page */}
+          <Link href={`/product/${item.id}`}>
+            <img
+             src={item.img} // The image source, dynamically taken from item.img
+             alt={item.title} // Accessibility: describes the image using the product title
+             className="cursor-pointer w-full rounded-lg" // Tailwind styles: makes it clickable, full width, rounded corners
+            />
+          </Link>
             <div className="flex justify-between mt-1 px-1 items-center">
               <span className="font-medium text-gray-800">${item.price}</span>
               <Button
@@ -48,7 +50,7 @@ export default function ProductCard({ products }: { products?: typeof itemData }
                 onClick={() => addToCart(item)}
                 sx={{ textTransform: "none" }}
               >
-                Add
+                Add to Cart
               </Button>
             </div>
           </div>
@@ -57,7 +59,9 @@ export default function ProductCard({ products }: { products?: typeof itemData }
     </Box>
   );
 }
+
 /*
+
 // Product data with unique IDs for routing
 export const itemData = [
   { id: 1, img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f", title: "Fern", price: 12 },

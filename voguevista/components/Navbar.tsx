@@ -39,7 +39,7 @@ export default function Navbar () {
   const navigation = [
 
     { title: "Home", path: "/" },
-    { title: "Products", path: "/properties" },
+    { title: "Products", path: "/productpage" },
     { title: "Cart", path: "/cart" },
     { title: "About", path: "/about" },
     { title: "Contact", path: "/contact" },

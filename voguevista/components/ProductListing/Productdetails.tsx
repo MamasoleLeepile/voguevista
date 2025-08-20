@@ -1,9 +1,18 @@
 "use client";
 
+import * as React from "react";
 import { useCart } from "@/components/ProductListing/CartContext";
 import itemData from "@/components/ProductListing/ProductData";
-import Button from "@mui/material/Button";
-import AddIcon from "@mui/icons-material/Add";
+import {
+  Container,
+  SimpleGrid,
+  Stack,
+  Image,
+  Text,
+  Button,
+  Title,
+  Paper,
+} from "@mantine/core";
 
 export default function ProductDetail({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -13,26 +22,37 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
   if (!product) return <p>Product not found</p>;
 
   return (
-    <div
-      className="w-full h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: `url(${product.img})` }}
-    >
-      <div className="bg-white bg-opacity-80 p-8 rounded-lg max-w-md">
-        <h1 className="text-3xl font-bold">{product.title}</h1>
-        <p className="mt-2 text-xl font-semibold">${product.price}</p>
-        <p className="mt-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-          sollicitudin, nunc ut efficitur.
-        </p>
-        <Button
-          variant="contained"
-          startIcon={<AddIcon />}
-          sx={{ mt: 4 }}
-          onClick={() => addToCart(product)}
-        >
-          Add to Cart
-        </Button>
-      </div>
-    </div>
+    <Container my="xl">
+      <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
+        {/* Product Image */}
+        <Paper shadow="md" radius="md" p="md">
+          <Image
+            src={product.img}
+            alt={product.title}
+            radius="md"
+            fit="cover"
+          />
+        </Paper>
+
+        {/* Product Details */}
+        <Stack justify="center" gap="md">
+          <Title order={2}>{product.title}</Title>
+          <Text size="lg" fw={500}>
+            ${product.price}
+          </Text>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+            sollicitudin, nunc ut efficitur, magna quam varius est.
+          </Text>
+          <Button
+            color="blue"
+            size="md"
+            onClick={() => addToCart(product)}
+          >
+            Add to Cart
+          </Button>
+        </Stack>
+      </SimpleGrid>
+    </Container>
   );
 }
