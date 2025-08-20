@@ -95,7 +95,7 @@ export default function Login() {
           <span className="absolute top-11 right-2">{PasswordToggleIcon}</span>
         </div>
 
-        <SubmitButton
+        <SubmitButton 
           title="Login"
           isLoading={isLoading}
           LoadingTitle="Logging you in please wait...."
@@ -104,7 +104,7 @@ export default function Login() {
 
       <div className="mt-4 text-center text-sm">
         Don&apos;t have an account?{" "}
-        <Link href="/register" className="underline">
+        <Link href="/auth/register" className="underline">
           Sign up
         </Link>
       </div>

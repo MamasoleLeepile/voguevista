@@ -19,7 +19,7 @@ export default function SubmitButton({title, buttonType="submit", isLoading=fals
    </Button>
 
    ):(
-    <Button type={buttonType} className='bg-gray-950 hover:bg-indigo-600'>
+    <Button type={buttonType} className='w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150 '>
       {title}
     </Button>
    )}
