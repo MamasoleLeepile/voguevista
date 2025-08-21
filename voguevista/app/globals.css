@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
+/* --- Base colors for VogueVista theme --- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff5f8; /* soft pastel pink/white */
+  --foreground: #171717; /* dark text for readability */
+  --primary: #db2777;    /* main pink/rose */
+  --secondary: #7c3aed;  /* soft purple for accents */
+  --accent: #fbbf24;     /* gold/yellow highlights */
+  --font-sans: 'Inter', Arial, Helvetica, sans-serif;
+  --font-mono: 'Courier New', monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* --- Dark mode colors --- */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary: #f472b6;
+    --secondary: #c4b5fd;
+    --accent: #facc15;
   }
 }
 
+/* --- Apply globally --- */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* --- Links / Buttons --- */
+a, button {
+  transition: all 0.3s ease;
+}
+
+a:hover, button:hover {
+  color: var(--primary);
+}
+
+/* --- Utility for card backgrounds --- */
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* --- Gradient background utilities --- */
+.bg-primary-gradient {
+  background: linear-gradient(90deg, #f472b6, #db2777, #ec4899);
+}
+
+.bg-secondary-gradient {
+  background: linear-gradient(90deg, #c4b5fd, #7c3aed, #6d28d9);
+}
+
+.bg-accent-gradient {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b, #d97706);
 }

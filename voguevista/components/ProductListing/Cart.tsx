@@ -15,7 +15,7 @@ export default function CartPage() {
         <Button
           variant="contained"
           color="primary"
-          href="/products"
+          href="/properties"
           className="bg-indigo-600 hover:bg-indigo-500"
         >
           Continue Shopping
@@ -40,7 +40,7 @@ export default function CartPage() {
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-28 h-28 object-cover rounded-lg"
+                  className="w-full sm:w-28 h-28 object-cover rounded-lg"
                 />
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
@@ -66,6 +66,7 @@ export default function CartPage() {
                       <AddIcon />
                     </IconButton>
                     <Button
+                      className="bg-indigo-600 hover:bg-indigo-500 py-3 transition-colors duration-200"
                       color="error"
                       variant="outlined"
                       size="small"
@@ -97,13 +98,13 @@ export default function CartPage() {
               <span>${(totalPrice() + 5).toFixed(2)}</span>
             </div>
             <Button
-              variant="contained"
-              color="primary"
-              fullWidth
-              className="bg-indigo-600 hover:bg-indigo-500 py-3"
-            >
-              Proceed to Checkout
-            </Button>
+  variant="contained"
+  color="primary"
+  fullWidth
+  className="bg-indigo-600 hover:bg-indigo-500 py-3 transition-colors duration-200"
+>
+  Proceed to Checkout
+</Button>
           </div>
         </Grid.Col>
       </Grid>
